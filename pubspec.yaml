@@ -1,0 +1,33 @@
+name: neom_frequencies
+description: Frequencies Details for Cyberneom.
+version: 1.0.0
+homepage: https://github.com/emmanuel-montoya/neom_frequencies
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  neom_commons:
+    git:
+      url: https://github.com/Cyberneom/neom_commons.git
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+dependency_overrides:
+  neom_commons:
+    path: ../neom_commons
+  intl: 0.18.1
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
