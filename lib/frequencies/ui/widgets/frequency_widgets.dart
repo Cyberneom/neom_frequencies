@@ -32,7 +32,10 @@ Widget buildFreqFavList(BuildContext context, FrequencyController _) {
               }),
         onLongPress: () {
           _.makeMainFrequency(frequency);
-          AppUtilities.showAlert(context, AppTranslationConstants.frequencyPreferences.tr, "${frequency.name.tr} ${AppTranslationConstants.selectedAsMainFrequency.tr}");
+          AppUtilities.showAlert(context,
+              title: AppTranslationConstants.frequencyPreferences.tr,
+              message: "${frequency.name.tr} ${AppTranslationConstants.selectedAsMainFrequency.tr}"
+          );
         },
         onTap: () => Get.toNamed(AppRouteConstants.generator,  arguments: [frequency]),
       );
@@ -61,19 +64,34 @@ Widget buildFrequencyList(BuildContext context, FrequencyController _) {
                   if (_.favFrequencies.length > 1) {
                     await _.removeFrequency(index);
                     if(_.favFrequencies.containsKey(frequency.id)) {
-                      AppUtilities.showAlert(context, "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz", MessageTranslationConstants.frequencyNotRemoved.tr);
+                      AppUtilities.showAlert(context,
+                          title: "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz",
+                          message: MessageTranslationConstants.frequencyNotRemoved.tr
+                      );
                     } else {
-                      AppUtilities.showAlert(context, "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz", MessageTranslationConstants.frequencyRemoved.tr);
+                      AppUtilities.showAlert(context,
+                          title: "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz",
+                          message: MessageTranslationConstants.frequencyRemoved.tr
+                      );
                     }
                   } else {
-                    AppUtilities.showAlert(context, "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz", MessageTranslationConstants.atLeastOneFrequency.tr);
+                    AppUtilities.showAlert(context,
+                        title: "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz",
+                        message: MessageTranslationConstants.atLeastOneFrequency.tr
+                    );
                   }
                 } else {
                   await _.addFrequency(index);
                   if(_.favFrequencies.containsKey(frequency.id)) {
-                    AppUtilities.showAlert(context, "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz", MessageTranslationConstants.frequencyAdded.tr);
+                    AppUtilities.showAlert(context,
+                        title: "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz",
+                        message: MessageTranslationConstants.frequencyAdded.tr
+                    );
                   } else {
-                    AppUtilities.showAlert(context, "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz", MessageTranslationConstants.frequencyNotAdded.tr);
+                    AppUtilities.showAlert(context,
+                        title: "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz",
+                        message: MessageTranslationConstants.frequencyNotAdded.tr
+                    );
                   }
                 }
               }

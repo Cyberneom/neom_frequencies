@@ -1,14 +1,16 @@
 import 'dart:convert';
+
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:neom_commons/core/data/implementations/app_drawer_controller.dart';
-import 'package:neom_commons/core/domain/model/app_profile.dart';
 import 'package:neom_commons/core/data/implementations/user_controller.dart';
+import 'package:neom_commons/core/domain/model/app_profile.dart';
 import 'package:neom_commons/core/domain/model/neom/neom_frequency.dart';
 import 'package:neom_commons/core/utils/app_utilities.dart';
 import 'package:neom_commons/core/utils/constants/app_assets.dart';
 import 'package:neom_commons/core/utils/constants/app_page_id_constants.dart';
-import 'package:neom_frequencies/frequencies/data/firestore/frequency_firestore.dart';
+import '../data/firestore/frequency_firestore.dart';
+
 import '../domain/use_cases/frequency_service.dart';
 
 class FrequencyController extends GetxController implements FrequencyService {
