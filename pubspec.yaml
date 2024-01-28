@@ -1,6 +1,6 @@
 name: neom_frequencies
 description: Frequencies Details for Cyberneom.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/Cyberneom/neom_frequencies
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -14,7 +14,7 @@ dependencies:
 
   neom_commons:
     git:
-      url: https://github.com/Cyberneom/neom_commons.git
+      url: git@github.com:Cyberneom/neom_commons.git
 
 dev_dependencies:
   flutter_test:
@@ -22,15 +22,9 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 dependency_overrides:
-  neom_commons:
-    path: ../neom_commons
+#  neom_commons:
+#    path: ../neom_commons
   uuid: 4.1.0
   logger: ^2.0.2+1 #itemlists spotify_sdk
-#  http: 1.1.0 #commons google_maps_webservice
-#  google_api_headers: 2.0.3
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter packages.
 flutter:
