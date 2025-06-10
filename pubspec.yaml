@@ -1,6 +1,6 @@
 name: neom_frequencies
 description: Frequencies Details for Cyberneom.
-version: 1.1.0
+version: 1.1.1
 homepage: https://github.com/Cyberneom/neom_frequencies
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 

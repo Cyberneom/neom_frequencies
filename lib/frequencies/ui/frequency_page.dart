@@ -9,7 +9,7 @@ import 'frequency_controller.dart';
 import 'widgets/frequency_widgets.dart';
 
 class FrequencyPage extends StatelessWidget {
-  const FrequencyPage({Key? key}) : super(key: key);
+  const FrequencyPage({super.key});
 
   @override
   Widget build(BuildContext context) {

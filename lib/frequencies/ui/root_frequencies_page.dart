@@ -13,7 +13,7 @@ import 'frequency_controller.dart';
 import 'widgets/frequency_widgets.dart';
 
 class RootFrequenciesPage extends StatelessWidget {
-  const RootFrequenciesPage({Key? key}) : super(key: key);
+  const RootFrequenciesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
