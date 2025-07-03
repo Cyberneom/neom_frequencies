@@ -1,8 +1,8 @@
 name: neom_frequencies
-description: Frequencies Details for Cyberneom.
-version: 1.1.1
+description: Frequencies Details for Open Neom.
+version: 1.2.0
 homepage: https://github.com/Cyberneom/neom_frequencies
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -12,6 +12,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  neom_core:
+    git:
+      url: git@github.com:Cyberneom/neom_core.git
   neom_commons:
     git:
       url: git@github.com:Cyberneom/neom_commons.git

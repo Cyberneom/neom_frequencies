@@ -3,12 +3,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:neom_commons/core/domain/model/neom/neom_frequency.dart';
-import 'package:neom_commons/core/utils/app_utilities.dart';
-import 'package:neom_commons/core/utils/constants/app_route_constants.dart';
-import 'package:neom_commons/core/utils/constants/app_translation_constants.dart';
-import 'package:neom_commons/core/utils/constants/message_translation_constants.dart';
+import 'package:neom_commons/commons/utils/app_alerts.dart';
+import 'package:neom_commons/commons/utils/constants/app_translation_constants.dart';
+import 'package:neom_commons/commons/utils/constants/message_translation_constants.dart';
+import 'package:neom_core/core/domain/model/neom/neom_frequency.dart';
+import 'package:neom_core/core/utils/constants/app_route_constants.dart';
 import '../frequency_controller.dart';
 
 Widget buildFreqFavList(BuildContext context, FrequencyController _) {
@@ -32,7 +31,7 @@ Widget buildFreqFavList(BuildContext context, FrequencyController _) {
               }),
         onLongPress: () {
           _.makeMainFrequency(frequency);
-          AppUtilities.showAlert(context,
+          AppAlerts.showAlert(context,
               title: AppTranslationConstants.frequencyPreferences.tr,
               message: "${frequency.name.tr} ${AppTranslationConstants.selectedAsMainFrequency.tr}"
           );
@@ -64,18 +63,18 @@ Widget buildFrequencyList(BuildContext context, FrequencyController _) {
                   if (_.favFrequencies.length > 1) {
                     await _.removeFrequency(index);
                     if(_.favFrequencies.containsKey(frequency.id)) {
-                      AppUtilities.showAlert(context,
+                      AppAlerts.showAlert(context,
                           title: "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz",
                           message: MessageTranslationConstants.frequencyNotRemoved.tr
                       );
                     } else {
-                      AppUtilities.showAlert(context,
+                      AppAlerts.showAlert(context,
                           title: "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz",
                           message: MessageTranslationConstants.frequencyRemoved.tr
                       );
                     }
                   } else {
-                    AppUtilities.showAlert(context,
+                    AppAlerts.showAlert(context,
                         title: "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz",
                         message: MessageTranslationConstants.atLeastOneFrequency.tr
                     );
@@ -83,12 +82,12 @@ Widget buildFrequencyList(BuildContext context, FrequencyController _) {
                 } else {
                   await _.addFrequency(index);
                   if(_.favFrequencies.containsKey(frequency.id)) {
-                    AppUtilities.showAlert(context,
+                    AppAlerts.showAlert(context,
                         title: "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz",
                         message: MessageTranslationConstants.frequencyAdded.tr
                     );
                   } else {
-                    AppUtilities.showAlert(context,
+                    AppAlerts.showAlert(context,
                         title: "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz",
                         message: MessageTranslationConstants.frequencyNotAdded.tr
                     );

@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:neom_commons/core/domain/model/neom/neom_frequency.dart';
+import 'package:neom_core/core/domain/model/neom/neom_frequency.dart';
 
 abstract class FrequencyRepository {
 
