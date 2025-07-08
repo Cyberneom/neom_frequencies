@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'package:neom_core/core/utils/constants/app_route_constants.dart';
+import 'package:neom_core/utils/constants/app_route_constants.dart';
 import 'ui/frequency_page.dart';
 import 'ui/root_frequencies_page.dart';
 

@@ -2,23 +2,22 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:neom_commons/commons/utils/constants/app_page_id_constants.dart';
-import 'package:neom_core/core/app_config.dart';
-import 'package:neom_core/core/data/implementations/app_drawer_controller.dart';
-import 'package:neom_core/core/data/implementations/user_controller.dart';
-import 'package:neom_core/core/domain/model/app_profile.dart';
-import 'package:neom_core/core/domain/model/neom/neom_frequency.dart';
-import 'package:neom_core/core/utils/constants/data_assets.dart';
-import '../data/firestore/frequency_firestore.dart';
-
-import '../domain/use_cases/frequency_service.dart';
+import 'package:neom_commons/utils/constants/app_page_id_constants.dart';
+import 'package:neom_core/app_config.dart';
+import 'package:neom_core/data/firestore/frequency_firestore.dart';
+import 'package:neom_core/data/implementations/app_drawer_controller.dart';
+import 'package:neom_core/data/implementations/user_controller.dart';
+import 'package:neom_core/domain/model/app_profile.dart';
+import 'package:neom_core/domain/model/neom/neom_frequency.dart';
+import 'package:neom_core/domain/use_cases/frequency_service.dart';
+import 'package:neom_core/utils/constants/data_assets.dart';
 
 class FrequencyController extends GetxController implements FrequencyService {
 
   
   final userController = Get.find<UserController>();
 
-  final RxMap<String, NeomFrequency> frequencies = <String, NeomFrequency>{}.obs;
+  final RxMap<String, NeomFrequency> _frequencies = <String, NeomFrequency>{}.obs;
   final RxMap<String, NeomFrequency> favFrequencies = <String,NeomFrequency>{}.obs;
   final RxMap<String, NeomFrequency> sortedFrequencies = <String,NeomFrequency>{}.obs;  
 
@@ -57,10 +56,10 @@ class FrequencyController extends GetxController implements FrequencyService {
 
     for (var freqJSON in frequencyJSON) {
       NeomFrequency freq = NeomFrequency.fromAssetJSON(freqJSON);
-      frequencies[freq.id] = freq;
+      _frequencies[freq.id] = freq;
     }
 
-    AppConfig.logger.d("${frequencies.length} loaded frequencies from json");
+    AppConfig.logger.d("${_frequencies.length} loaded frequencies from json");
 
     isLoading.value = false;
     update([AppPageIdConstants.frequencies]);
@@ -125,18 +124,20 @@ class FrequencyController extends GetxController implements FrequencyService {
 
     sortedFrequencies.value = {};
 
-    for (var frequency in frequencies.values) {
+    for (var frequency in _frequencies.values) {
       if (favFrequencies.containsKey(frequency.id)) {
         sortedFrequencies[frequency.id] = favFrequencies[frequency.id]!;
       }
     }
 
-    for (var frequency in frequencies.values) {
+    for (var frequency in _frequencies.values) {
       if (!favFrequencies.containsKey(frequency.id)) {
-        sortedFrequencies[frequency.id] = frequencies[frequency.id]!;
+        sortedFrequencies[frequency.id] = _frequencies[frequency.id]!;
       }
     }
-
   }
+
+  @override
+  Map<String, NeomFrequency> get frequencies => _frequencies.value;
 
 }

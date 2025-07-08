@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:neom_commons/commons/ui/theme/app_theme.dart';
-import 'package:neom_commons/commons/ui/widgets/appbar_child.dart';
-import 'package:neom_commons/commons/utils/constants/app_page_id_constants.dart';
-import 'package:neom_commons/commons/utils/constants/app_translation_constants.dart';
+import 'package:neom_commons/ui/theme/app_theme.dart';
+import 'package:neom_commons/ui/widgets/appbar_child.dart';
+import 'package:neom_commons/utils/constants/app_page_id_constants.dart';
+import 'package:neom_commons/utils/constants/app_translation_constants.dart';
 import 'frequency_controller.dart';
 import 'widgets/frequency_widgets.dart';
 

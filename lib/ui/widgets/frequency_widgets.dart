@@ -3,11 +3,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:neom_commons/commons/utils/app_alerts.dart';
-import 'package:neom_commons/commons/utils/constants/app_translation_constants.dart';
-import 'package:neom_commons/commons/utils/constants/message_translation_constants.dart';
-import 'package:neom_core/core/domain/model/neom/neom_frequency.dart';
-import 'package:neom_core/core/utils/constants/app_route_constants.dart';
+import 'package:neom_commons/utils/app_alerts.dart';
+import 'package:neom_commons/utils/constants/app_translation_constants.dart';
+import 'package:neom_commons/utils/constants/message_translation_constants.dart';
+import 'package:neom_core/domain/model/neom/neom_frequency.dart';
+import 'package:neom_core/utils/constants/app_route_constants.dart';
 import '../frequency_controller.dart';
 
 Widget buildFreqFavList(BuildContext context, FrequencyController _) {
